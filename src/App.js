@@ -30,7 +30,7 @@ const App = () => {
           <Posts posts={posts}  edit={edit}/>
         </div>
         <div className="col-6">
-          {editing ? <EditPost/> : ''}
+          {editing ? <EditPost post={post}/> : ''}
         </div>
       </div>
     </div>
