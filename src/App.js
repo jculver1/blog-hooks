@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import Posts from './components/Posts'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+const App = () => {
+  const blogData = [
+    {id: 1, title:'All About Luna', body: 'Luna is the best cat ever'},
+    {id: 2, title:'More about Luna', body: 'Luna is the best cat ever, she is sooooo cute'},
+    {id: 3, title:'Future friends', body: 'One day she will have a best friend named Pugsy'}
+  ]
+
+  const [posts, setPosts] = useState(blogData)
+
+  return(
+    <div className="container">
+      <div className="row">
+        <div className='col-6'>
+          <Posts posts={posts} />
+        </div>
+        <div className="col-6">
+
+        </div>
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;
