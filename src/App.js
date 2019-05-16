@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import Posts from './components/Posts'
+import EditPost from './components/EditPost'
 
 const App = () => {
   const blogData = [
@@ -11,14 +12,25 @@ const App = () => {
 
   const [posts, setPosts] = useState(blogData)
 
+  const initialState = {id: null, title: '', body: ''}
+
+  const [post, setCurrentPost] = useState(initialState)
+
+  const [editing, setEditing] = useState(false)
+
+  const edit = post => {
+    setEditing(true)
+    setCurrentPost({ id: post.id, title: post.title, body: post.body })
+  }
+
   return(
     <div className="container">
       <div className="row">
         <div className='col-6'>
-          <Posts posts={posts} />
+          <Posts posts={posts}  edit={edit}/>
         </div>
         <div className="col-6">
-
+          {editing ? <EditPost/> : ''}
         </div>
       </div>
     </div>

@@ -5,10 +5,12 @@ const Posts = props => {
     const generatePosts = props.posts.map(post => {
         return(
             <div>
-                <div class='card'>
+                <div class='card mt-3'>
                     <div class='card-body'>
                         <h5 class="card-title">{post.title}</h5>
                         <p class="card-text">{post.body}</p>
+                        <button class="btn btn-danger mr-1">Delete</button>
+                        <button onClick={() => props.edit(post)} class="btn btn-success">Edit</button>
                     </div>
                 </div>
             </div>
@@ -17,6 +19,7 @@ const Posts = props => {
 
     return(
         <div>
+            <h1>Welcome to the Blog</h1>
             {generatePosts}
         </div>
     )
