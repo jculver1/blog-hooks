@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import Posts from './components/Posts'
 import EditPost from './components/EditPost'
+import AddPost from './components/AddPost'
 
 const App = () => {
   const blogData = [
@@ -9,18 +10,25 @@ const App = () => {
     {id: 2, title:'More about Luna', body: 'Luna is the best cat ever, she is sooooo cute'},
     {id: 3, title:'Future friends', body: 'One day she will have a best friend named Pugsy'}
   ]
-
-  const [posts, setPosts] = useState(blogData)
-
   const initialState = {id: null, title: '', body: ''}
-
+  
+  const [posts, setPosts] = useState(blogData)
   const [post, setCurrentPost] = useState(initialState)
-
   const [editing, setEditing] = useState(false)
 
   const edit = post => {
     setEditing(true)
     setCurrentPost({ id: post.id, title: post.title, body: post.body })
+  }
+
+  const updatePost = (id, updatedPost) => {
+    setEditing(false)
+    setPosts(posts.map(post => (post.id === id ? updatedPost : post)))
+  }
+
+  const addPost = post => {
+    post.id = posts.length + 1
+    setPosts([...posts, post])
   }
 
   return(
@@ -29,8 +37,9 @@ const App = () => {
         <div className='col-6'>
           <Posts posts={posts}  edit={edit}/>
         </div>
+        <AddPost addPost={addPost}/>
         <div className="col-6">
-          {editing ? <EditPost post={post}/> : ''}
+          {editing ? <EditPost post={post} updatePost={updatePost} /> : ''}
         </div>
       </div>
     </div>
