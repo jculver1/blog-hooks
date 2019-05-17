@@ -31,7 +31,7 @@ const AddPost = (props) => {
                 <div class="input-group-prepend">
                     <span class="input-group-text">Body</span>
                 </div>
-                <textarea class="form-control" aria-label="With textarea" value={post.body} onChange={handleInputChange}></textarea>
+                <textarea class="form-control" aria-label="With textarea" type='text' name='body' value={post.body} onChange={handleInputChange}></textarea>
                 </div>
                 <button>Add Post</button>
             </form>
