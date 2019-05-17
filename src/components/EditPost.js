@@ -25,12 +25,24 @@ const EditPost = props =>{
             }}
             >
                 <div class='row'>
-                    <input name='title' value={post.title} onChange={handleInputChange} />
+                <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Title</span>
+                </div>
+                    <input class="form-control" aria-label="With textarea" type="text" name='title' value={post.title} onChange={handleInputChange} />
+                </div>
                 </div>
                 <div class='row'>
-                    <input name='body' value={post.body} onChange={handleInputChange} />
+
+                <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Title</span>
                 </div>
-                <button>Save</button>
+                    <input class="form-control" aria-label="With textarea" type="text" name='body' value={post.body} onChange={handleInputChange} />
+                </div>
+                </div>
+                <button type="button" class="btn btn-primary">Save</button>
+                <button onClick={() => props.setEditing(false)} type="button" class="btn btn-primary ml-2">Cancel</button>
             </form>
         </div>
     )

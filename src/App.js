@@ -38,9 +38,9 @@ const addPost = post => {
         <div className='col-6'>
           <Posts posts={posts}  edit={editPost}/>
         </div>
-        <AddPost addPost={addPost}/>
         <div className="col-6">
-          {editing ? <EditPost currentPost={currentPost} editPost={updatePost} /> : ''}
+        <AddPost addPost={addPost}/>
+          {editing ? <EditPost setEditing={setEditing} currentPost={currentPost} editPost={updatePost} /> : ''}
         </div>
       </div>
     </div>

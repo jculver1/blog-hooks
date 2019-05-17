@@ -33,7 +33,7 @@ const AddPost = (props) => {
                 </div>
                 <textarea class="form-control" aria-label="With textarea" type='text' name='body' value={post.body} onChange={handleInputChange}></textarea>
                 </div>
-                <button>Add Post</button>
+                <button type="button" class="btn btn-primary">Add Post</button>
             </form>
         </div>
     )
