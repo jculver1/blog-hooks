@@ -13,33 +13,34 @@ const App = () => {
   const initialState = {id: null, title: '', body: ''}
   
   const [posts, setPosts] = useState(blogData)
-  const [post, setCurrentPost] = useState(initialState)
+  const [currentPost, setCurrentPost] = useState(initialState)
   const [editing, setEditing] = useState(false)
 
-  const edit = post => {
-    setEditing(true)
-    setCurrentPost({ id: post.id, title: post.title, body: post.body })
-  }
+const editPost = post =>{
+  console.log(post)
+  setEditing(true)
+  setCurrentPost({id: post.id, title: post.title, body: post.body})
+}
 
-  const updatePost = (id, updatedPost) => {
-    setEditing(false)
-    setPosts(posts.map(post => (post.id === id ? updatedPost : post)))
-  }
+const updatePost = (id, updatedPost) =>{
+  setEditing(false)
+  setPosts(posts.map(post => post.id === id ? updatedPost : post))
+}
 
-  const addPost = post => {
-    post.id = posts.length + 1
-    setPosts([...posts, post])
-  }
+const addPost = post => {
+  post.id = posts.length + 1
+  setPosts([...posts, post])
+}
 
   return(
     <div className="container">
       <div className="row">
         <div className='col-6'>
-          <Posts posts={posts}  edit={edit}/>
+          <Posts posts={posts}  edit={editPost}/>
         </div>
         <AddPost addPost={addPost}/>
         <div className="col-6">
-          {editing ? <EditPost post={post} updatePost={updatePost} /> : ''}
+          {editing ? <EditPost currentPost={currentPost} editPost={updatePost} /> : ''}
         </div>
       </div>
     </div>
