@@ -32,11 +32,15 @@ const addPost = post => {
   setPosts([...posts, post])
 }
 
+const deletePost = id => {
+  setPosts(posts.filter(post => post.id !== id))
+}
+
   return(
     <div className="container">
       <div className="row">
         <div className='col-6'>
-          <Posts posts={posts}  edit={editPost}/>
+          <Posts posts={posts}  edit={editPost} delete={deletePost}/>
         </div>
         <div className="col-6">
         <AddPost addPost={addPost}/>

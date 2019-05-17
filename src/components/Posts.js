@@ -9,7 +9,7 @@ const Posts = props => {
                     <div class='card-body'>
                         <h5 class="card-title">{post.title}</h5>
                         <p class="card-text">{post.body}</p>
-                        <button class="btn btn-danger mr-1">Delete</button>
+                        <button onClick={() => props.delete(post.id)} class="btn btn-danger mr-1">Delete</button>
                         <button onClick={() => props.edit(post)} class="btn btn-success">Edit</button>
                     </div>
                 </div>
