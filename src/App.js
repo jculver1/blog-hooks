@@ -3,6 +3,7 @@ import './App.css';
 import Posts from './components/Posts'
 import EditPost from './components/EditPost'
 import AddPost from './components/AddPost'
+import Header from './components/Header'
 
 const App = () => {
   const blogData = [
@@ -38,6 +39,7 @@ const deletePost = id => {
 
   return(
     <div className="container">
+      <Header/>
       <div className="row">
         <div className='col-6'>
           <Posts posts={posts}  edit={editPost} delete={deletePost}/>
